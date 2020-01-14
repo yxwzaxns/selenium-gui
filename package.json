@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "i@aong.cn",
   "description": "A visual interface for web crawler tools",
-  "license": null,
+  "license": "MIT",
   "main": "./dist/electron/main.js",
   "scripts": {
     "build": "node .electron-vue/build.js && electron-builder",
@@ -17,6 +17,8 @@
     "pack:main": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.main.config.js",
     "pack:renderer": "cross-env NODE_ENV=production webpack --progress --colors --config .electron-vue/webpack.renderer.config.js",
     "postinstall": "npm run lint:fix"
+  },
+  "bin": {
   },
   "build": {
     "productName": "selenium-gui",
