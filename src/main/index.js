@@ -20,14 +20,22 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
+    x: 1200,
+    y: 100,
+    minWidth: 800,
+    minHeight: 560,
     height: 563,
-    useContentSize: true,
     width: 800,
-    frame: false
+    useContentSize: true,
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true,
+      enableRemoteModule: true
+    }
   })
 
   mainWindow.loadURL(winURL)
-
+  mainWindow.webContents.openDevTools()
   mainWindow.on('closed', () => {
     mainWindow = null
   })

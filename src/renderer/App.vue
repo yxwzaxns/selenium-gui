@@ -10,16 +10,13 @@
   }
 </script>
 
-<style>
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-
-  * {
-    margin: 0;
-    padding: 0;
-  }
-  #app {
-    /* background-color: aliceblue; */
-  }
-
-  body { font-family: 'Source Sans Pro', sans-serif; }
+<style scoped>
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+#app{
+  -webkit-app-region: drag;
+  font-family: 'Source Sans Pro', sans-serif;
+  height: 100vh;
+  background-color: #007acc;
+  opacity: 0.9;
+}
 </style>

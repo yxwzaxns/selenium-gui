@@ -34,7 +34,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    -webkit-app-region: drag;
+    // -webkit-app-region: drag;
 }
 .menu{
     width: 200px;

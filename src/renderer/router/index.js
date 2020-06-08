@@ -17,18 +17,13 @@ export default new Router({
     },
     {
       path: '/list',
-      name: 'main',
+      name: 'list',
       component: require('@/pages/main').default
     },
     {
       path: '/settings',
       name: 'settings',
       component: require('@/pages/settings').default
-    },
-    {
-      path: '/info',
-      name: 'landing-page',
-      component: require('@/components/LandingPage').default
     },
     {
       path: '*',
