@@ -9532,15 +9532,9 @@ tunnel@^0.0.6:
   resolved "https://registry.yarnpkg.com/tunnel/-/tunnel-0.0.6.tgz#72f1314b34a5b192db012324df2cc587ca47f92c"
   integrity sha512-1h/Lnq9yajKY2PEbBadPXj3VxsDDu844OnaAo52UVmIzIvwwtBPIuNvkjuzBlTWpfJyUbG3ez0KSBibQkj4ojg==
 
-"tvt@file:../../../git/weblist":
-  version "0.0.2"
-  dependencies:
-    cheerio "^1.0.0-rc.3"
-    cli-progress "^3.4.0"
-    commander "^5.1.0"
-    selenium-webdriver "^4.0.0-alpha.5"
-    uni-utils "^1.0.2"
-    winston "^3.2.1"
+"tvt@link:/Users/fuda/workspace/git/tvt":
+  version "0.0.0"
+  uid ""
 
 tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   version "0.14.5"

@@ -8,6 +8,9 @@ export const getSysInfo = () => {
     ipcRenderer.send('getSysInfo')
   })
 }
+export const getBaseSettings = async () => {
+  return ipcRenderer.invoke('getBaseSettings')
+}
 
 export const getTaskList = () => {
   return new Promise((resolve, reject) => {

@@ -9,15 +9,22 @@ ipcMain.on('getSysInfo', async (event, someArgument) => {
   sys.storage = await si.fsSize()
   event.reply('getSysInfoReply', sys)
 })
-ipcMain.on('getTaskList', async (event, someArgument) => {
-  let res = []
+
+ipcMain.handle('getTaskList', async (event, args) => {
+  let res = null
   try {
     res = await TVT.listTask()
   } catch (error) {
     console.log('2333', error)
-    console.log('4555', error?.ss?.ss || 1)
   }
   console.log(res)
+  return res
+})
 
-  event.reply('getTaskListReply', res)
+ipcMain.handle('getBaseSettings', async () => {
+  let res = null
+  console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(TVT)))
+
+  res = await TVT.getConfig()
+  return res
 })

@@ -13,15 +13,17 @@
     </div>
     <div class="content">
       <system-information v-if="tabNo==1"></system-information>
+      <base-settings v-if="tabNo==2"></base-settings>
     </div>
   </div>
 </template>
 
 <script>
   import SystemInformation from '../components/SystemInformation'
+  import BaseSettings from '../components/BaseSettings'
   export default {
     name: 'settings',
-    components: { SystemInformation },
+    components: { SystemInformation, BaseSettings },
     data () {
       return {
         navList: [
@@ -46,7 +48,7 @@
             no: 5
           }
         ],
-        tabNo: 1
+        tabNo: 2
       }
     },
     created () {

@@ -57,7 +57,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "systeminformation": "^4.26.9",
-    "tvt": "file:../../../git/weblist",
+    "tvt": "link:/Users/fuda/workspace/git/tvt",
     "vue": "^2.5.16",
     "vue-electron": "^1.0.6",
     "vue-router": "^3.0.1",
