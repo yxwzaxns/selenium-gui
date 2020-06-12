@@ -13,12 +13,12 @@ export default new Router({
     {
       path: '/create',
       name: 'create',
-      component: require('@/pages/main').default
+      component: require('@/pages/create').default
     },
     {
       path: '/list',
       name: 'list',
-      component: require('@/pages/main').default
+      component: require('@/pages/list').default
     },
     {
       path: '/settings',

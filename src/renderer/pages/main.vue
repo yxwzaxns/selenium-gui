@@ -38,7 +38,7 @@
 }
 .menu{
     width: 200px;
-    background-color: cornflowerblue;
+    background-color: #fe7d38;
     height: 200px;
     border-radius: 5px;
     display: flex;
@@ -58,7 +58,7 @@
             background-color: darkcyan;
             border-radius: 5px;
             color:floralwhite;
-            font-size: 20px;
+            font-size: 22px;
             cursor: pointer;
         }
         &:last-child{

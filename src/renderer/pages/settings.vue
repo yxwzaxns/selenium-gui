@@ -1,5 +1,5 @@
 <template>
-  <div id="main" @dblclick="openDev">
+  <div id="main">
     <div class="nav">
       <div class="item">
         <div>系统设置</div>
@@ -58,14 +58,6 @@
       },
       back () {
         this.$router.push('home')
-      },
-      openDev () {
-        const webContents = require('electron').remote.getCurrentWebContents()
-        if (webContents.isDevToolsOpened()) {
-          webContents.closeDevTools()
-        } else {
-          webContents.openDevTools()
-        }
       }
     }
   }
@@ -86,7 +78,7 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      background-color: #ffa900;
+      background-color: #fe7d38;
       height: 10%;
       padding: 10px;
       border-radius: 0 5px 5px 0;
