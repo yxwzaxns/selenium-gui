@@ -12,6 +12,13 @@
       </div>
     </div>
     <div class="content">
+      <div class="taskList"> 
+        <div class="task" v-for="(task,i) in taskList" :key="i">
+          <div>#{{i+1}}</div>
+          <div>{{task.name||'null'}}</div>
+          <div>配置</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -32,12 +39,14 @@
             no: 2
           }
         ],
-        tabNo: 1
+        tabNo: 1,
+        taskList: [1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6]
       }
     },
     created () {
       getTaskList().then(res => {
         console.log(res)
+        this.taskList = res
       })
     },
     methods: {
@@ -57,6 +66,7 @@
   display: flex;
   flex-direction: row;
   .nav{
+    -webkit-app-region: no-drag;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -88,13 +98,51 @@
     }
   }
   .content{
-    border: cyan 1px solid;
+    -webkit-app-region: no-drag;
+    // border: cyan 1px solid;
     margin: 20px 0 20px 10px;
     border-radius: 5px;
     background-color: darkcyan;
     width: 80%;
     opacity: 0.9;
-    padding: 10px;
+    // padding: 10px 0;
+    overflow: hidden;
+    .taskList{
+      width: 103%;
+      height: 100%;
+      background-image: url('../assets/list.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      overflow-y: scroll;
+      // padding-right: 25px; /* Increase/decrease this value for cross-browser compatibility */
+      // box-sizing: content-box;
+      .task{
+        background-color: #e3eb72;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1px;
+        height: 20%;
+        opacity: 0.4;
+        // border-radius: 5px;
+        color: #9a98a3;
+        div{
+          margin-left: 10px;
+          opacity: 1;
+        }
+        &:last-child{
+          margin-bottom: 0px;
+        }
+        &:nth-child(2n){
+          background-color: #3079aa;
+          opacity: 0.8;
+          color: #fff;
+        }
+        &:nth-child(2n+1){
+          color: #000;
+        }
+      }
+    }
   }
 }
 </style>

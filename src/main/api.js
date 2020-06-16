@@ -17,14 +17,13 @@ ipcMain.handle('getTaskList', async (event, args) => {
   } catch (error) {
     console.log('2333', error)
   }
-  console.log(res)
+  console.log('getTaskList', res)
   return res
 })
 
 ipcMain.handle('getBaseSettings', async () => {
   let res = null
-  console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(TVT)))
-
+  // console.log(Object.getOwnPropertyNames(Object.getPrototypeOf(TVT)))
   res = await TVT.getConfig()
   return res
 })

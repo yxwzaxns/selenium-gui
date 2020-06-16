@@ -71,6 +71,7 @@
   display: flex;
   flex-direction: row;
   .nav{
+    -webkit-app-region: no-drag;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -102,6 +103,7 @@
     }
   }
   .content{
+    -webkit-app-region: no-drag;
     border: cyan 1px solid;
     margin: 20px 0 20px 10px;
     border-radius: 5px;
