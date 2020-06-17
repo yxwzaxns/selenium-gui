@@ -1,4 +1,5 @@
 const { ipcRenderer } = require('electron')
+const Utils = require('uni-utils')
 
 export const getSysInfo = () => {
   return new Promise((resolve, reject) => {
@@ -19,4 +20,9 @@ export const getTaskList = () => {
     })
     ipcRenderer.send('getTaskList')
   })
+}
+
+export const appQuit = async () => {
+  await Utils.sleep(3000)
+  return false
 }

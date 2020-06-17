@@ -2,6 +2,7 @@
 
 import { app, BrowserWindow } from 'electron'
 import './api'
+// const DEV = process.env.NODE_ENV === 'development'
 // const { ipcMain } = require('electron')
 /**
  * Set `__static` path to static files in production
@@ -17,15 +18,16 @@ const winURL = process.env.NODE_ENV === 'development'
   : `file://${__dirname}/index.html`
 
 function createWindow () {
-  /**
-   * Initial window options
-   */
+  const initLoc = {}
+  if (process.env.NODE_ENV === 'development') {
+    initLoc.x = 1300
+    initLoc.y = 50
+  }
   mainWindow = new BrowserWindow({
-    x: 1200,
-    y: 100,
+    ...initLoc,
     minWidth: 800,
-    minHeight: 560,
-    height: 563,
+    minHeight: 600,
+    height: 600,
     width: 800,
     useContentSize: true,
     frame: false,
@@ -44,10 +46,11 @@ function createWindow () {
 
 app.on('ready', createWindow)
 
-app.on('window-all-closed', () => {
+app.on('will-quit', (event) => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
+  // if (DEV) event.preventDefault()
 })
 
 app.on('activate', () => {

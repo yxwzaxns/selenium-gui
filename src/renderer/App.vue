@@ -24,11 +24,16 @@
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+/* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro'); */
+@font-face {
+  font-family: "Noto Serif SC";
+  src: url("./assets/fonts/NotoSerifSC-Regular.otf");
+}
 #app{
   -webkit-app-region: drag;
   user-select:none;
-  font-family: 'Source Sans Pro', sans-serif;
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  font-family: "Noto Serif SC","Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   height: 100vh;
   background-color: #fbe80b;
   opacity: 0.9;
