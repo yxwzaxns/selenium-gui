@@ -35,7 +35,8 @@
   /* font-family: 'Source Sans Pro', sans-serif; */
   font-family: "Noto Serif SC","Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   height: 100vh;
-  background-color: #fbe80b;
-  opacity: 0.9;
+  /* background-color: #fbe80b; */
+  /* opacity: 0.9; */
+  background:rgba(0,0,0,0.9);
 }
 </style>

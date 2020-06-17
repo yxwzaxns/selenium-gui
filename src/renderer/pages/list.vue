@@ -1,8 +1,8 @@
 <template>
-  <div id="main">
+  <div id="main" :style="bgStyle">
     <div class="nav">
-      <div class="item">
-        <div>任务列表</div>
+      <div id="tools">
+        <input class="filterInput" type="text" v-model="filterText" @input="filterTask">
       </div>
       <div class="item" :class="{active:tabNo==nav.no}" v-for="nav in navList" :key="nav.no" @click="tabNo=nav.no">
         <div>{{nav.name}}</div>
@@ -12,11 +12,14 @@
       </div>
     </div>
     <div class="content">
-      <div class="taskList"> 
+      <div class="taskList" @scroll="changeBg"> 
         <div class="task" v-for="(task,i) in taskList" :key="i">
-          <div>#{{i+1}}</div>
+          <div>#{{task}}</div>
           <div>{{task.name||'null'}}</div>
+          <div>{{task.desc||'null'}}</div>
+          <div>启动</div>
           <div>配置</div>
+          <div>删除</div>
         </div>
       </div>
     </div>
@@ -30,31 +33,48 @@
     data () {
       return {
         navList: [
-          {
-            name: '开始',
-            no: 1
-          },
-          {
-            name: '重置',
-            no: 2
-          }
         ],
         tabNo: 1,
-        taskList: [1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6]
+        oTaskList: [],
+        taskList: [],
+        bgStyle: {
+          backgroundPosition: '50% 0%'
+        },
+        filterText: ''
       }
     },
     created () {
+      this.oTaskList = [1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6]
+      this.taskList = [1, 2, 3, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6]
       getTaskList().then(res => {
         console.log(res)
-        this.taskList = res
+        this.oTaskList = res
       })
+    },
+    computed: {
+  
     },
     methods: {
       goPage (item) {
         this.$router.push(item.name)
       },
+      filterTask () {
+        if (!this.filterText) {
+          this.taskList = this.oTaskList
+          return
+        }
+        this.taskList = this.oTaskList.filter(e => {
+          return e.toString().includes(this.filterText)
+        })
+      },
       back () {
         this.$router.push('home')
+      },
+      changeBg (e) {
+        const yv = e.target.scrollTop / (e.target.scrollHeight - e.target.clientHeight) * 100
+        this.bgStyle = {
+          backgroundPosition: `50% ${yv}%`
+        }
       }
     }
   }
@@ -65,12 +85,28 @@
   height: 100%;
   display: flex;
   flex-direction: row;
+  background-image: url('../assets/list.png');
+  transition: background-position 500ms linear 0ms;
+  background-size: cover;
+  background-repeat: no-repeat;
   .nav{
+    padding: 20px 0;
     -webkit-app-region: no-drag;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    #tools{
+      padding-left: 5px;
+      .filterInput{
+        width:100px;
+        height: 20px;
+        padding: 1px;
+        background-color: rgba(198, 211, 194, 0.6);
+        -webkit-appearance: none;
+        outline: none;
+      }
+    }
     .item{
       display: flex;
       justify-content: center;
@@ -84,7 +120,7 @@
       text-align: center;
       font-size: 18px;
       color: aliceblue;
-      // line-height: 10%;
+      background:rgba(156, 167, 149, 0.6);
       &.active{
         background-color: #6c8dd5;
         color: #e7eb1d;
@@ -99,47 +135,36 @@
   }
   .content{
     -webkit-app-region: no-drag;
-    // border: cyan 1px solid;
     margin: 20px 0 20px 10px;
     border-radius: 5px;
     background-color: darkcyan;
     width: 80%;
-    opacity: 0.9;
-    // padding: 10px 0;
+    background:rgba(0,0,0,0.5);
     overflow: hidden;
     .taskList{
       width: 103%;
       height: 100%;
-      background-image: url('../assets/list.png');
-      background-repeat: no-repeat;
-      background-position: center;
       overflow-y: scroll;
-      // padding-right: 25px; /* Increase/decrease this value for cross-browser compatibility */
-      // box-sizing: content-box;
       .task{
-        background-color: #e3eb72;
         width: 100%;
         display: flex;
         flex-direction: row;
+        justify-content: space-around;
         margin-bottom: 1px;
         height: 20%;
-        opacity: 0.4;
-        // border-radius: 5px;
-        color: #9a98a3;
         div{
           margin-left: 10px;
-          opacity: 1;
         }
         &:last-child{
           margin-bottom: 0px;
         }
         &:nth-child(2n){
-          background-color: #3079aa;
-          opacity: 0.8;
+          background: rgba($color: #676c72, $alpha: .6);
           color: #fff;
         }
         &:nth-child(2n+1){
-          color: #000;
+          background: rgba($color: #5d6061, $alpha: .6);
+          color: #fff;
         }
       }
     }
