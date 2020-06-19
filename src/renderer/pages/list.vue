@@ -102,7 +102,7 @@
         width:100px;
         height: 20px;
         padding: 1px;
-        background-color: rgba(198, 211, 194, 0.6);
+        background-color: rgba(96, 107, 134, 0.6);
         -webkit-appearance: none;
         outline: none;
       }

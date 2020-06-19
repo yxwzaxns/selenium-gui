@@ -40,3 +40,15 @@
   background:rgba(0,0,0,0.9);
 }
 </style>
+<style lang="css">
+input{
+  width:100px;
+  height: 20px;
+  padding: 1px;
+  display: block;
+  color: azure;
+  background-color: rgba(64, 64, 83, 0.6);
+  -webkit-appearance: none;
+  outline: none;
+}
+</style>

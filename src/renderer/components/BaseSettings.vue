@@ -34,7 +34,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .main{
     color: honeydew;
     font-size: 18px;
@@ -59,14 +59,16 @@
   .item {
     display: flex;
     margin-bottom: 6px;
-  }
-
-  .item .name {
-    margin-right: 6px;
-  }
-
-  .item .value {
-    color: #143457;
-    font-weight: bold;
+    input{
+      width: 150px;
+      background-color: rgba(117, 117, 138, 0.6);
+    }
+    .name {
+      margin-right: 6px;
+    }
+    .value {
+      color: #143457;
+      font-weight: bold;
+    }
   }
 </style>

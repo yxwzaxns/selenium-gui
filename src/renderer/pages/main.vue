@@ -38,7 +38,7 @@
       },
       changeBg (item) {
         if (item) {
-          const yv = (item.no - 1) / 4 * 100
+          const yv = (item.no - 1) / this.menus.length * 100
           this.bgStyle = {
             backgroundPosition: `50% ${yv}%`
           }
@@ -73,6 +73,7 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: background-position 1000ms linear 0ms;
+    background-size: cover;
 }
 .menu{
     -webkit-app-region: no-drag;

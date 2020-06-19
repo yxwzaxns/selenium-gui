@@ -101,7 +101,7 @@
   }
 
   .item .value {
-    color: #143457;
+    color: #90a560;
     font-weight: bold;
   }
 </style>

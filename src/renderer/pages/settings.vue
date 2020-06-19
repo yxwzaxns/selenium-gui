@@ -1,10 +1,14 @@
 <template>
-  <div id="main">
+  <div id="main" :style="bgStyle">
     <div class="nav">
       <div class="item">
         <div>系统设置</div>
       </div>
-      <div class="item" :class="{active:tabNo==nav.no}" v-for="nav in navList" :key="nav.no" @click="tabNo=nav.no">
+      <div class="item" 
+          :class="{active:tabNo==nav.no}" 
+          v-for="nav in navList" 
+          :key="nav.no" 
+          @mouseenter="changeTab(nav)">
         <div>{{nav.name}}</div>
       </div>
       <div class="back item" @click="back">
@@ -48,7 +52,10 @@
             no: 5
           }
         ],
-        tabNo: 2
+        tabNo: 1,
+        bgStyle: {
+          backgroundPosition: '50% 0%'
+        }
       }
     },
     created () {
@@ -60,6 +67,16 @@
       },
       back () {
         this.$router.push('home')
+      },
+      changeTab (nav) {
+        this.tabNo = nav.no
+        this.changeBg(nav.no)
+      },
+      changeBg (i) {
+        const yv = (i - 1) / this.navList.length * 100
+        this.bgStyle = {
+          backgroundPosition: `50% ${yv}%`
+        }
       }
     }
   }
@@ -69,10 +86,17 @@
 #main{
   height: 100%;
   display: flex;
+  padding-right: 15px;
   flex-direction: row;
+  justify-content: space-between;
+  background-image: url('../assets/settings.png');
+  transition: background-position 500ms linear 0ms;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 0%;
   .nav{
     -webkit-app-region: no-drag;
-    overflow: hidden;
+    // overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -89,7 +113,7 @@
       text-align: center;
       font-size: 18px;
       color: aliceblue;
-      // line-height: 10%;
+      background-color: rgba(245, 173, 79, 0.7);
       &.active{
         background-color: #6c8dd5;
         color: #e7eb1d;
@@ -104,12 +128,11 @@
   }
   .content{
     -webkit-app-region: no-drag;
-    border: cyan 1px solid;
     margin: 20px 0 20px 10px;
     border-radius: 5px;
     background-color: darkcyan;
     width: 80%;
-    opacity: 0.9;
+    background-color: rgba(49, 51, 49, 0.8);
     padding: 10px;
   }
 }
