@@ -97,7 +97,6 @@
         border-bottom: 1px solid rgb(218, 117, 117);
         &:hover{
             background-color: darkcyan;
-            border-radius: 5px;
             color:floralwhite;
             font-size: 22px;
             cursor: pointer;

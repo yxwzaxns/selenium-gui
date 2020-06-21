@@ -2,7 +2,8 @@ module.exports = {
   root: true,
   parser: 'babel-eslint',
   parserOptions: {
-    sourceType: 'module'
+    sourceType: 'module',
+    ecmaVersion: 2020
   },
   env: {
     browser: true,
@@ -16,7 +17,8 @@ module.exports = {
   plugins: [
     'html'
   ],
-  'rules': {
+  rules: {
+    strict: 0,
     // allow paren-less arrow functions
     'arrow-parens': 0,
     // allow async-await
